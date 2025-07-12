@@ -50,6 +50,9 @@ EOL
     git clone https://github.com/xiaorouji/openwrt-passwall.git --depth 1 -b main
 })
 cat >> configs/rockchip/01-nanopi <<EOL
+CONFIG_PACKAGE_chinadns-ng=y
+CONFIG_PACKAGE_dns2socks=y
+CONFIG_PACKAGE_tcping=y
 CONFIG_PACKAGE_luci-app-passwall=y
 CONFIG_PACKAGE_luci-app-passwall_Nftables_Transparent_Proxy=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Geoview=y
