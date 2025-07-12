@@ -14,6 +14,36 @@ CONFIG_PACKAGE_smartmontools=y
 EOL
 # }}
 
+# {{ Add chinadns-ng
+(cd friendlywrt && {
+    mkdir -p package/chinadns-ng
+    wget https://github.com/kenzok8/small-package/blob/main/chinadns-ng/Makefile -O package/chinadns-ng/Makefile
+})
+cat >> configs/rockchip/01-nanopi <<EOL
+CONFIG_PACKAGE_chinadns-ng=y
+EOL
+# }}
+
+# {{ Add dns2socks
+(cd friendlywrt && {
+    mkdir -p package/dns2socks
+    wget https://github.com/kenzok8/small-package/blob/main/dns2socks/Makefile -O package/dns2socks/Makefile
+})
+cat >> configs/rockchip/01-nanopi <<EOL
+CONFIG_PACKAGE_dns2socks=y
+EOL
+# }}
+
+# {{ Add tcping
+(cd friendlywrt && {
+    mkdir -p package/tcping
+    wget https://github.com/kenzok8/small-package/blob/main/tcping/Makefile -O package/tcping/Makefile
+})
+cat >> configs/rockchip/01-nanopi <<EOL
+CONFIG_PACKAGE_tcping=y
+EOL
+# }}
+
 # {{ Add luci-app-passwall
 (cd friendlywrt/package && {
     [ -d luci-app-passwall ] && rm -rf luci-app-passwall
