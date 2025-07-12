@@ -15,9 +15,9 @@ EOL
 # }}
 
 # {{ Add luci-app-passwall
-(cd friendlywrt && {
-    mkdir -p package/luci-app-passwall
-    wget https://github.com/xiaorouji/openwrt-passwall/blob/main/luci-app-passwall/Makefile -O package/luci-app-passwall/Makefile
+(cd friendlywrt/package && {
+    [ -d luci-app-passwall ] && rm -rf luci-app-passwall
+    git clone https://github.com/xiaorouji/openwrt-passwall.git --depth 1 -b main
 })
 cat >> configs/rockchip/01-nanopi <<EOL
 CONFIG_PACKAGE_luci-app-passwall=y
@@ -38,6 +38,29 @@ CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_Plugin=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray_Plugin=y
 CONFIG_PACKAGE_luci-i18n-passwall-zh-cn=y
+EOL
+# }}
+
+# {{ Add luci-app-nikki
+(cd friendlywrt/package && {
+    [ -d luci-app-nikki ] && rm -rf luci-app-nikki
+    git clone https://github.com/nikkinikki-org/OpenWrt-nikki.git --depth 1 -b main
+})
+cat >> configs/rockchip/01-nanopi <<EOL
+CONFIG_PACKAGE_luci-app-nikki=y
+CONFIG_PACKAGE_nikki=y
+EOL
+# }}
+
+# {{ Add luci-app-amneziawg
+(cd friendlywrt/package && {
+    [ -d luci-app-amneziawg ] && rm -rf luci-app-amneziawg
+    git clone https://github.com/Slava-Shchipunov/awg-openwrt.git --depth 1 -b main
+})
+cat >> configs/rockchip/01-nanopi <<EOL
+CONFIG_PACKAGE_luci-app-amneziawg=y
+CONFIG_PACKAGE_amneziawg-tools=y
+CONFIG_PACKAGE_kmod-amneziawg=y
 EOL
 # }}
 
