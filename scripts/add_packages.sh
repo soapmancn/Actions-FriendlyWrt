@@ -55,7 +55,7 @@ EOL
 # {{ Add luci-app-amneziawg
 (cd friendlywrt/package && {
     [ -d luci-app-amneziawg ] && rm -rf luci-app-amneziawg
-    git clone https://github.com/Slava-Shchipunov/awg-openwrt.git --depth 1 -b main
+    git clone https://github.com/Slava-Shchipunov/awg-openwrt.git --depth 1 -b master
 })
 cat >> configs/rockchip/01-nanopi <<EOL
 CONFIG_PACKAGE_luci-app-amneziawg=y
